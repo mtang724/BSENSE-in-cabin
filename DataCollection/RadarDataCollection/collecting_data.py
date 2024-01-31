@@ -7,7 +7,7 @@ RBWs = [50]
 # vtrig.VTRIG_U_TXMODE__HIGH_RATE, vtrig.VTRIG_U_TXMODE__LOW_RATE
 scan_profiles = [vtrig.VTRIG_U_TXMODE__MED_RATE]
 
-gt = 30 # respiration ground truth
+gt = 0 # respiration ground truth
 degree = 0
 round = 1
 
@@ -28,7 +28,7 @@ def rec2arr(rec):
 if calibrate:
     for RBW in RBWs:
         for scan_profile in scan_profiles:
-            scenario = '{}k_profile_{}_distance_{}_round_{}'.format(RBW, scan_profile, distance, round)
+            scenario = '{}k_profile_{}_distance{}_degree_{}_round_{}'.format(RBW, scan_profile, distance, degree, round)
             data_dir = os.path.join(curr_dir, '../data/{}/{}'.format(case, scenario))
             if not os.path.exists(data_dir):
                 os.makedirs(data_dir)
@@ -39,7 +39,7 @@ if calibrate:
 else:
     for RBW in RBWs:
         for scan_profile in scan_profiles:
-            scenario = '{}k_profile_{}_distance_{}_round_{}'.format(RBW, scan_profile, distance, round)
+            scenario = '{}k_profile_{}_distance{}_degree_{}_round_{}'.format(RBW, scan_profile, distance, degree, round)
             data_dir = os.path.join(curr_dir, '../data/{}/{}'.format(case, scenario))
             if not os.path.exists(data_dir):
                 os.makedirs(data_dir)

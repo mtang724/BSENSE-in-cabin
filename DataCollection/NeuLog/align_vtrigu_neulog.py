@@ -44,14 +44,14 @@ def create_folder(path, folder_name):
     return folder_path
 
 # Change here to select correct Neulog data
-user_id = "1"
 distance = [0.8]
 degree = [0]
+round = 1
 
 for i in distance:
     for j in degree:
     
-        cur_scenario = 'user{}_distance_{}m_{}'.format(user_id, i, j) # radar data folder name
+        cur_scenario = '{}k_profile_{}_distance{}_degree_{}_round_{}'.format(50, 1, i, j, round) # radar data folder name
         data_path = os.path.join(data_root, cur_case, cur_scenario)
         recording = np.load(os.path.join(data_path, "recording.npy"))
         config = np.load(os.path.join(data_path, "config.npy"), allow_pickle=True).item()
@@ -63,7 +63,7 @@ for i in distance:
 
         list_of_ts = [start_time + sample_time for i in range(len_frame+1)]
         timestamp_list1 = list_of_ts
-        neulog_df = pd.read_csv("{}_front_{}_{}.csv".format(user_id, i, j), header=None)
+        neulog_df = pd.read_csv("{}_front_{}_{}.csv".format(round, i, j), header=None) # ground truth
         timestamp_list2 = list(neulog_df[0].values)
 
         align_index_1, align_index_2 = find_alignment_indices(timestamp_list1, timestamp_list2)

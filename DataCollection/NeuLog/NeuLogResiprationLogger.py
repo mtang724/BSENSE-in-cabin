@@ -7,7 +7,7 @@ start_exp_url = "http://localhost:22004/NeuLogAPI?StartExperiment:[Respiration],
 end_exp_url = "http://localhost:22004/NeuLogAPI?StopExperiment"
 get_data_url = "http://localhost:22004/NeuLogAPI?GetExperimentSamples"
 
-user_id = "1"
+round = 1
 distance1 = 0.8 # in meters
 # distance2 = 0.6
 degree = 0 # in degrees
@@ -38,7 +38,7 @@ if "GetExperimentSamples" in data:
     # Extract the data points from the response
     samples = data["GetExperimentSamples"][0]
     # Save the data to a file (e.g., a CSV file)
-    with open("{}_front_{}_{}.csv".format(user_id, distance1, degree), "w") as file:
+    with open("{}_front_{}_{}.csv".format(round, distance1, degree), "w") as file:
         for timestamp, sample in zip(timestamp_list, samples[2:]):
             file.write(str(timestamp) + "," + str(sample) + "\n")
             # Add 1/20th of a second (0.05 seconds) to the timestamp
