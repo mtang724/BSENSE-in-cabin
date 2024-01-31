@@ -55,3 +55,13 @@ j for degree
 cur_scenario = '{}k_profile_{}_distance_degree_{}_round_{}'.format(50, 1, i, j, 1) # radar data folder name
 neulog_df = pd.read_csv("{}_front_{}_{}.csv".format(round, i, j), header=None) # ground truth
 ```
+
+### Visualize Radar data
+Run `vital_sign_detection_pipeline.ipynb`
+
+Parameters:
+```
+data_root = os.path.join('/home/ming/Documents') # change to your data root folder
+cur_case = '1018Aligned' # main radar data folder
+cur_scenario = 'distance_0.8m_0_1018figure1' # radar data scenario
+```
