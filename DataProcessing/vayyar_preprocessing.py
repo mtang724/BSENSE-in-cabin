@@ -43,7 +43,6 @@ def MVDR_beamforming(range_profile, num_tx = 20, num_rx = 20):
     
     # frames, nAnt, range_index
     range_profile = np.transpose(range_profile, (1, 0, 2))
-    
     M = range_profile.shape[2]  # Number of range bins
 
     # Initialize outputs
@@ -68,6 +67,7 @@ def MVDR_beamforming(range_profile, num_tx = 20, num_rx = 20):
         rangeAngle[rIdx, :] = 1 / np.abs(np.diag(np.dot(steerMat.conj().T, bfWeight_)))
         # Store the pseudoinverse of the covariance matrix
         invCovMat[rIdx, :, :] = pinv_covMat
+        bfWeight[rIdx, :, :] = bfWeight_
     return rangeAngle, bfWeight, invCovMat
         
         
