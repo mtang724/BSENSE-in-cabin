@@ -6,7 +6,7 @@ from scipy.constants import c
 def distance_3d(x1, y1, z1, x2, y2, z2):
     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
 
-def MVDR_beamforming(range_profile, num_tx = 20, num_rx = 20):
+def MVDR_beamforming(range_profile, num_tx = 20, num_rx = 20, searchStep = 10):
     # tx_spacing = distance_3d(-0.0275, -0.0267, 0, -0.0253, -0.0267, 0)
     rx_spacing = distance_3d(0.0274, -0.0133, 0, 0.0274, -0.0112, 0)
 
@@ -16,7 +16,7 @@ def MVDR_beamforming(range_profile, num_tx = 20, num_rx = 20):
     # Azimuth, Elevation, fov search
     afov = 180
     efov = 180
-    searchStep = 10
+    # searchStep = 10
 
     # Calculate angular ranges
     efov_rad = np.radians(np.linspace(-efov/2, efov/2, int(efov/searchStep)))
@@ -68,6 +68,7 @@ def MVDR_beamforming(range_profile, num_tx = 20, num_rx = 20):
         rangeAngle[rIdx, :] = 1 / np.abs(np.diag(np.dot(steerMat.conj().T, bfWeight_)))
         # Store the pseudoinverse of the covariance matrix
         invCovMat[rIdx, :, :] = pinv_covMat
+        bfWeight[rIdx, :, :] = bfWeight_
     return rangeAngle, bfWeight, invCovMat
         
         
