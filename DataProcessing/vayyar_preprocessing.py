@@ -43,7 +43,6 @@ def MVDR_beamforming(range_profile, num_tx = 20, num_rx = 20, searchStep = 10):
     
     # frames, nAnt, range_index
     range_profile = np.transpose(range_profile, (1, 0, 2))
-    
     M = range_profile.shape[2]  # Number of range bins
 
     # Initialize outputs
