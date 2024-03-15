@@ -399,8 +399,8 @@ class AnimationWindow(QWidget):
                     # row2_heatmap = np.linalg.norm(row2_currHeatmap_arr, axis=0)
                     row2_heatmap = np.mean(row2_currHeatmap_arr, axis=0)
                     
-                    self.vis.row1_heatmap = row1_heatmap
-                    self.vis.row2_heatmap = row2_heatmap
+                    self.vis.row1_heatmap = row1_heatmap.T
+                    self.vis.row2_heatmap = row2_heatmap.T
                 except:
                     pass
             
@@ -457,8 +457,8 @@ class AnimationWindow(QWidget):
                     row2_currHeatmap_arr = np.array(row2_currHeatmap_list)
                     row2_heatmap = np.linalg.norm(row2_currHeatmap_arr, axis=0)
                     
-                    self.vis.row1_heatmap = row1_heatmap
-                    self.vis.row2_heatmap = row2_heatmap
+                    self.vis.row1_heatmap = row1_heatmap.T
+                    self.vis.row2_heatmap = row2_heatmap.T
                 except:
                     pass
                 
