@@ -1,0 +1,1 @@
+{"radar_start_time": 1706922483.724671, "radar_end_time": 1706922502.9292388, "gt_start_time": 1706922479.325452, "gt_end_time": 1706922509.2754233, "radar_align_index": 0, "gt_align_index": 88, "aligned_radar_start_time": 1706922483.724671, "aligned_gt_start_time": 1706922483.7254477, "scenario": {"distance": 1, "degree": 30, "round": 2}}

@@ -1,0 +1,12 @@
+{
+    "gt_path": "/data/bsense_data/data/AnushriAligned/50k_profile_1_distance1.0_degree_30_round_2/respiration_belt.csv",
+    "gt_window_size": 101,
+    "gt_window_stride": 20,
+    "gt_window_bpm": {
+        "middle": {
+            "BPMs": 22.57425768152661,
+            "avg": 22.57425768152661,
+            "std": null
+        }
+    }
+}
