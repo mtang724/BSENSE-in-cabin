@@ -5,3 +5,4 @@ torch==2.4.1
 matplotlib==3.9.2
 rich==13.9.1
 torchvision==0.19.1
+scikit-learn==1.5.2

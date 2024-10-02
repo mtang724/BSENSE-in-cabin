@@ -1,9 +1,9 @@
 ### Prerequisites:
 
 - Ubuntu 20.04
-- Conda with Python 3.8+
+- Conda with Python 3.10+
 - CUDA >= 11.3 capable GPU
-- Python Library in requests.txt
+- Python Library in requirements.txt
 
 ### Run with Docker
 
@@ -11,13 +11,24 @@
 
 ### Steup without Docker
 
-1. Install conda environment with ```conda create -n bsense_env python=3.9```
+1. Install conda environment with ```conda create -n bsense_env python=3.10```
 2. Source environment ```conda activate bsense_env``` and then ```pip install -r requirements.txt```
 
 ### Dataset Preparation
 
 1. Download the demo preprocessed_data from the [Link](https://drive.google.com/drive/folders/1ivgNDxUhQ058c8ZzDCREIny6XvJ4hRru?usp=sharing) and put it under ``BSENSE/data_preprocessing``
 2. Download the test dataset ```test_data``` from the [Link](https://drive.google.com/drive/folders/1IKW6GsTIThGNduqU9UdGtTqJ7JAsQQ93?usp=sharing) and put it under ```BSENSE/model_training```
+
+### Data Preprocessing
+
+To run the minimum working example for data preprocessing:
+
+```bash
+cd BSENSE/data_preprocessing
+python data_preprocessing_for_one_file.py /preprocessed_dataset/50k_profile_1_distance1.7_gt_30_round_1
+```
+
+The generated feature file will be in ``` BSENSE/processed_dataset``` (Please create one if the folder is not exist)
 
 ### Evaluation
 
