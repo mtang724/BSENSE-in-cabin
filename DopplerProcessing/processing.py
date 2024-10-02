@@ -4,7 +4,7 @@ from scipy.signal import find_peaks
 import re
 import json
 
-from case import CaseProcessor
+from DopplerProcessing.case import CaseProcessor
 
 def get_ground_truth_respiration(respiration_wave):
     peaks, _ = find_peaks(respiration_wave, prominence=50)
