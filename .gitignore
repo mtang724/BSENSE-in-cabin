@@ -1,6 +1,5 @@
 *Aligned/
 __pycache__
-BSENSE/data_preprocessing/preprocessed_dataset
 !BSENSE/data_preprocessing/preprocessed_dataset/.gitkeep
 BSENSE/data_preprocessing/processed_dataset
 !BSENSE/data_preprocessing/processed_dataset/.gitkeep

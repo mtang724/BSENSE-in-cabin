@@ -4,20 +4,43 @@
 - Conda with Python 3.10+
 - CUDA >= 11.3 capable GPU
 - Python Library in requirements.txt
+- Git
+- Docker
 
-### Run with Docker
+### Before using Docker/Conda
 
-[TODO] @Hanbo Please fill this part
+First clone this repository to local:
+
+```bash
+git clone https://github.com/mtang724/BSENSE-in-cabin.git
+```
+
+then download data.
+
+### Dataset Preparation
+
+1. Download the test dataset ```test_data.zip``` from the [Link](https://drive.google.com/drive/folders/1IKW6GsTIThGNduqU9UdGtTqJ7JAsQQ93?usp=sharing) and put it under the project base directory. So the current directory looks like:
+```bash
+user@host:/bsense_main# ls
+BSENSE  [other files/folders]  baseline  requirements.txt test_data.zip
+```
+
+
+### Setup with Docker
+
+Before using docker, please ensure the dataset `test_data.zip` is put in the project base directory. 
+
+1. Navigate to the project base directory
+2. Build the container with: `docker build -t bsense-in-cabin .` This will
+   1. Install all dependencies
+   2. Prepare the test dataset
+3. Run the container with: `docker run -it --name bsense bsense-in-cabin`
 
 ### Steup without Docker
 
 1. Install conda environment with ```conda create -n bsense_env python=3.10```
 2. Source environment ```conda activate bsense_env``` and then ```pip install -r requirements.txt```
 
-### Dataset Preparation
-
-1. Download the demo preprocessed_data from the [Link](https://drive.google.com/drive/folders/1ivgNDxUhQ058c8ZzDCREIny6XvJ4hRru?usp=sharing) and put it under ``BSENSE/data_preprocessing``
-2. Download the test dataset ```test_data``` from the [Link](https://drive.google.com/drive/folders/1IKW6GsTIThGNduqU9UdGtTqJ7JAsQQ93?usp=sharing) and put it under ```BSENSE/model_training```
 
 ### Data Preprocessing
 
@@ -25,10 +48,10 @@ To run the minimum working example for data preprocessing:
 
 ```bash
 cd BSENSE/data_preprocessing
-python data_preprocessing_for_one_file.py /preprocessed_dataset/50k_profile_1_distance1.7_gt_30_round_1
+python3 data_preprocessing_for_one_file.py preprocessed_dataset/50k_profile_1_distance1.7_gt_30_round_1
 ```
 
-The generated feature file will be in ``` BSENSE/processed_dataset``` (Please create one if the folder is not exist)
+The generated feature file will be in ```BSENSE/data_preprocessing/processed_dataset```.
 
 ### Evaluation
 
@@ -36,7 +59,7 @@ To run the minimum working example for evaluation on Child Presence Detection an
 
 ```bash
 cd BSENSE/model_training/train_and_inference
-python indoor_row2_inference.py
+python3 indoor_row2_inference.py
 ```
 
 The above is for backseats front-facing Child Presence Detection - the expected output for 5 experiments:
@@ -50,7 +73,7 @@ Detection Rate for 5 Experiments: 0.9666666666666667
 
 ```bash
 cd BSENSE/model_training/train_and_inference
-python indoor_row3_inference.py
+python3 indoor_row3_inference.py
 ```
 
 The above is for backseats rear-facing Child Presence Detection - the expected output for 5 experiments:
@@ -64,7 +87,7 @@ Detection Rate for 5 Experiments: 1.0
 
 ```bash
 cd BSENSE/model_training/train_and_inference
-python incar_row2_inference.py
+python3 incar_row2_inference.py
 ```
 
 The above is for baby in car backseats front-facing Child Presence Detection - the expected output for 5 experiments:
@@ -86,7 +109,7 @@ See this [Page](https://github.com/mtang724/BSENSE-in-cabin/tree/main/baseline).
 
 ```bash
 cd BSENSE/model_training/train_and_inference
-python minimal_example_train.py
+python3 minimal_example_train.py
 ```
 
 Expected Output:

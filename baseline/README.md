@@ -4,11 +4,11 @@ We compare our work (BSENSE) with a baseline bpm detection that identifies the p
 
 ## Run BSENSE
 
-1. Change to the baseline directory
+1. From the base BSENSE directory, move to the baseline directory
 ```bash
 cd baseline
 ```
-2. Run BSENSE with `python bsense/main.py`. 
+2. Run BSENSE with `python3 bsense/main.py`. 
 
 This runs BSENSE with one radar recording and outputs:
 * **Ground truth BPM**
@@ -19,8 +19,8 @@ This runs BSENSE with one radar recording and outputs:
 Run the range-doppler BPM detection by running from the baseline directory:
 
 ```bash 
-cd baseline
-python doppler/main.py
+# cd baseline
+python3 doppler/main.py
 ```
 
 It will calculate:

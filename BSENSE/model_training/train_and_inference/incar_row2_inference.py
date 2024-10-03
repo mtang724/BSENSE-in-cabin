@@ -1,20 +1,16 @@
-from bsense_dataset import BSenseDataset
-from torch.utils.data import DataLoader, SubsetRandomSampler
-from sklearn.model_selection import train_test_split
+import os
+import re
+import time
+from collections import defaultdict
+
+import numpy as np
 import torch
 import torch.nn as nn
-from model import ResNetDoppler, BasicBlock, AoA_AoD_Model, CombinedModel, CombinedModelOneDecoder
 import torch.nn.functional as F
-import numpy as np
-from sklearn.metrics import f1_score, accuracy_score
-import os
-import time
-import re
-from collections import defaultdict
-from sklearn.model_selection import train_test_split
-from scipy import stats
+from bsense_dataset import BSenseDataset
+from sklearn.metrics import accuracy_score
+from torch.utils.data import DataLoader
 from utils import *
-
 
 row = 2
 
@@ -97,7 +93,7 @@ for exp_id in range(0, 5):
     
     model_path = os.path.join('./model_weights/incar_weights', 'whole_exp_{}_front_incar_best_model_row{}.pth'.format(exp_id, row))
     # Load the model
-    model = torch.load(model_path)
+    model = torch.load(model_path, map_location=device if device != "cpu" else None)
 
     start_time = time.time()
     loss_fn = nn.BCEWithLogitsLoss()
