@@ -25,7 +25,7 @@ user@host:/bsense_main# ls
 BSENSE  [other files/folders]  baseline  requirements.txt test_data.zip
 ```
 
-
+## Setup
 ### Setup with Docker
 
 Before using docker, please ensure the dataset `test_data.zip` is put in the project base directory. 
@@ -40,8 +40,14 @@ Before using docker, please ensure the dataset `test_data.zip` is put in the pro
 
 1. Install conda environment with ```conda create -n bsense_env python=3.10```
 2. Source environment ```conda activate bsense_env``` and then ```pip install -r requirements.txt```
+   
+## Experiments
 
-
+### Unzip and Copy Test data
+```bash
+RUN mkdir BSENSE/model_training/test_data \
+    && unzip /tmp/test_data.zip -d BSENSE/model_training/
+```
 ### Data Preprocessing
 
 To run the minimum working example for data preprocessing:
