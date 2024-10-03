@@ -45,8 +45,8 @@ Before using docker, please ensure the dataset `test_data.zip` is put in the pro
 
 ### Unzip and Copy Test data
 ```bash
-RUN mkdir BSENSE/model_training/test_data \
-    && unzip /tmp/test_data.zip -d BSENSE/model_training/
+mkdir BSENSE/model_training/test_data 
+unzip test_data.zip -d BSENSE/model_training/
 ```
 ### Data Preprocessing
 
