@@ -19,7 +19,7 @@ then download data.
 
 ### Dataset Preparation
 
-1. Download the test dataset ```test_data.zip``` from the [Link](https://drive.google.com/drive/folders/1IKW6GsTIThGNduqU9UdGtTqJ7JAsQQ93?usp=sharing) and put it under the project base directory. So the current directory looks like:
+1. Download the test dataset ```test_data.zip``` from the [Link](https://drive.google.com/file/d/1ITCBwCiqCYCF3b8DakLEuUaCXWpQtiIR/view?usp=drive_link) and put it under the project base directory. So the current directory looks like:
 ```bash
 user@host:/bsense_main# ls
 BSENSE  [other files/folders]  baseline  requirements.txt test_data.zip
